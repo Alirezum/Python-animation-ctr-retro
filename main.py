@@ -55,6 +55,11 @@ def applay_ctr_curve(x, y):
     offset = (x - center_x) * curve_strength
     return int(x), int(y + offset)
 
+msg = input("Enter you massage:")
+flicking_msg = input("Enter you flicking massage:")
+
+
+
 # Main animation loop
 while True:
     for event in pygame.event.get():
@@ -85,12 +90,12 @@ while True:
 
     # Static "msg" with CTR curve
     px, py = applay_ctr_curve(150, HEIGHT // 2 - 20)
-    draw_glow_text(screen, "HELLO", font, WITHE, (px, py))
+    draw_glow_text(screen, msg, font, WITHE, (px, py))
 
     # Blinking "msg" with CTR curve
     if int(elapsed *2) %2 == 0:
         sx, sy = applay_ctr_curve(350, HEIGHT // 2 - 20)
-        draw_glow_text(screen, "WORLD ...", font, RED, (sx, sy))
+        draw_glow_text(screen, flicking_msg, font, RED, (sx, sy))
 
     # Update display
     pygame.display.flip()
